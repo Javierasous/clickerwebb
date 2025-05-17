@@ -1,8 +1,8 @@
-#Titulo{
+.Titulo{
     color: #FF0000;
     font-size: 30px;
     text-align: center;
 }
-#Fondo{
+.Fondo{
     background-color: #2b7699;
 }
