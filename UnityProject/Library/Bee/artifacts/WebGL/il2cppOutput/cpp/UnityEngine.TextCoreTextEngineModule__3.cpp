@@ -5146,6 +5146,91 @@ IL_014f:
 		return L_57;
 	}
 }
+IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR int32_t TextInfo_FindWordIndex_mBE63AEBCEAB861E976AFF328210B46180F297C2D (TextInfo_t27E58E62A7552C66D38C175AF9D22622365F5D09* __this, int32_t ___0_cursorIndex, const RuntimeMethod* method) 
+{
+	int32_t V_0 = 0;
+	WordInfo_tA466206097891A5A2590896EE164AFC406EB060D V_1;
+	memset((&V_1), 0, sizeof(V_1));
+	bool V_2 = false;
+	int32_t V_3 = 0;
+	bool V_4 = false;
+	int32_t G_B4_0 = 0;
+	{
+		V_0 = 0;
+		goto IL_0038;
+	}
+
+IL_0005:
+	{
+		WordInfoU5BU5D_tAD74C9720883D7BB229A20FFAE9EFD2CF9963F7B* L_0 = __this->___wordInfo;
+		int32_t L_1 = V_0;
+		int32_t L_2 = L_1;
+		WordInfo_tA466206097891A5A2590896EE164AFC406EB060D L_3 = (L_0)->GetAtUnchecked(static_cast<il2cpp_array_size_t>(L_2));
+		V_1 = L_3;
+		WordInfo_tA466206097891A5A2590896EE164AFC406EB060D L_4 = V_1;
+		int32_t L_5 = L_4.___firstCharacterIndex;
+		int32_t L_6 = ___0_cursorIndex;
+		if ((((int32_t)L_5) > ((int32_t)L_6)))
+		{
+			goto IL_002a;
+		}
+	}
+	{
+		WordInfo_tA466206097891A5A2590896EE164AFC406EB060D L_7 = V_1;
+		int32_t L_8 = L_7.___lastCharacterIndex;
+		int32_t L_9 = ___0_cursorIndex;
+		G_B4_0 = ((((int32_t)((((int32_t)L_8) < ((int32_t)L_9))? 1 : 0)) == ((int32_t)0))? 1 : 0);
+		goto IL_002b;
+	}
+
+IL_002a:
+	{
+		G_B4_0 = 0;
+	}
+
+IL_002b:
+	{
+		V_2 = (bool)G_B4_0;
+		bool L_10 = V_2;
+		if (!L_10)
+		{
+			goto IL_0033;
+		}
+	}
+	{
+		int32_t L_11 = V_0;
+		V_3 = L_11;
+		goto IL_004b;
+	}
+
+IL_0033:
+	{
+		int32_t L_12 = V_0;
+		V_0 = ((int32_t)il2cpp_codegen_add(L_12, 1));
+	}
+
+IL_0038:
+	{
+		int32_t L_13 = V_0;
+		int32_t L_14 = __this->___wordCount;
+		V_4 = (bool)((((int32_t)L_13) < ((int32_t)L_14))? 1 : 0);
+		bool L_15 = V_4;
+		if (L_15)
+		{
+			goto IL_0005;
+		}
+	}
+	{
+		V_3 = (-1);
+		goto IL_004b;
+	}
+
+IL_004b:
+	{
+		int32_t L_16 = V_3;
+		return L_16;
+	}
+}
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR int32_t TextInfo_FindNearestLine_mE69F45519747DEE0F3BCC90FFD7B619D0352DB26 (TextInfo_t27E58E62A7552C66D38C175AF9D22622365F5D09* __this, Vector2_t1FD6F485C871E832B347AB2DC8CBA08B739D8DF7 ___0_position, const RuntimeMethod* method) 
 {
 	float V_0 = 0.0f;
@@ -6036,6 +6121,89 @@ IL_003a:
 	{
 		int32_t L_8 = V_1;
 		return L_8;
+	}
+}
+IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR int32_t TextInfo_GetCorrespondingCodePointIndex_mD70F78CA6BB09556E2C6951BA20895DE85942B15 (TextInfo_t27E58E62A7552C66D38C175AF9D22622365F5D09* __this, int32_t ___0_stringIndex, const RuntimeMethod* method) 
+{
+	bool V_0 = false;
+	int32_t V_1 = 0;
+	int32_t V_2 = 0;
+	TextElementInfo_tDD7A12E319505510E0B350E342BD55F32AB5F976 V_3;
+	memset((&V_3), 0, sizeof(V_3));
+	bool V_4 = false;
+	bool V_5 = false;
+	{
+		int32_t L_0 = ___0_stringIndex;
+		V_0 = (bool)((((int32_t)((((int32_t)L_0) > ((int32_t)0))? 1 : 0)) == ((int32_t)0))? 1 : 0);
+		bool L_1 = V_0;
+		if (!L_1)
+		{
+			goto IL_0010;
+		}
+	}
+	{
+		V_1 = 0;
+		goto IL_005e;
+	}
+
+IL_0010:
+	{
+		V_2 = 0;
+		goto IL_0046;
+	}
+
+IL_0014:
+	{
+		TextElementInfoU5BU5D_tEC28C9B72883EE21AA798913497C69E179A15C4E* L_2 = __this->___textElementInfo;
+		int32_t L_3 = V_2;
+		int32_t L_4 = L_3;
+		TextElementInfo_tDD7A12E319505510E0B350E342BD55F32AB5F976 L_5 = (L_2)->GetAtUnchecked(static_cast<il2cpp_array_size_t>(L_4));
+		V_3 = L_5;
+		TextElementInfo_tDD7A12E319505510E0B350E342BD55F32AB5F976 L_6 = V_3;
+		int32_t L_7 = L_6.___index;
+		TextElementInfo_tDD7A12E319505510E0B350E342BD55F32AB5F976 L_8 = V_3;
+		int32_t L_9 = L_8.___stringLength;
+		int32_t L_10 = ___0_stringIndex;
+		V_4 = (bool)((((int32_t)((((int32_t)((int32_t)il2cpp_codegen_add(L_7, L_9))) < ((int32_t)L_10))? 1 : 0)) == ((int32_t)0))? 1 : 0);
+		bool L_11 = V_4;
+		if (!L_11)
+		{
+			goto IL_0041;
+		}
+	}
+	{
+		int32_t L_12 = V_2;
+		V_1 = ((int32_t)il2cpp_codegen_add(L_12, 1));
+		goto IL_005e;
+	}
+
+IL_0041:
+	{
+		int32_t L_13 = V_2;
+		V_2 = ((int32_t)il2cpp_codegen_add(L_13, 1));
+	}
+
+IL_0046:
+	{
+		int32_t L_14 = V_2;
+		int32_t L_15 = __this->___characterCount;
+		V_5 = (bool)((((int32_t)L_14) < ((int32_t)L_15))? 1 : 0);
+		bool L_16 = V_5;
+		if (L_16)
+		{
+			goto IL_0014;
+		}
+	}
+	{
+		int32_t L_17 = __this->___characterCount;
+		V_1 = L_17;
+		goto IL_005e;
+	}
+
+IL_005e:
+	{
+		int32_t L_18 = V_1;
+		return L_18;
 	}
 }
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR LineInfo_t2BBD461B330C46ACA45596A8E72FEA4172F88CF5 TextInfo_GetLineInfoFromCharacterIndex_m4ED8ACCF098AD57E7B5EC26FC26BFECAA0B064AB (TextInfo_t27E58E62A7552C66D38C175AF9D22622365F5D09* __this, int32_t ___0_index, const RuntimeMethod* method) 
